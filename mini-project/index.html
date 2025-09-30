@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ultimate Content Template with Working Widevine DRM</title>
+
+<link rel="stylesheet" href="style.css"> 
+
+<script src="https://cdn.jsdelivr.net/npm/shaka-player@4.7.4/dist/shaka-player.compiled.js"></script>
+</head>
+<body>
+<div class="container">
+<h1>Content Secured with Widevine DRM</h1>
+<p class="subtitle" contenteditable="true" data-placeholder="Proof of decryption flow (L3)">This template demonstrates the successful Widevine decryption flow using Shaka Player.</p>
+
+<h2 contenteditable="true" data-placeholder="First Section">Introduction to Cybersecurity & Encryption</h2>
+<div class="content-block">
+<ul>
+<li>Cybersecurity is the practice of protecting systems, networks, and programs from digital attacks.</li>
+<li>Encryption is the fundamental tool in this defense, transforming data into ciphertext only readable by authorized keyholders.</li>
+<li>This project demonstrates two critical types of encryption: Content Security (DRM) and Data Integrity (Base64).</li>
+<li>Digital Rights Management (DRM) ensures content creators maintain control over their premium media, making the video unplayable without a valid key/license.</li>
+</ul>
+</div>
+
+<h2 contenteditable="true" data-placeholder="Key Points">Key Features & DRM Status</h2>
+<div class="content-block">
+<div class="point-list" id="pointList1">
+<div class="point-item">
+<span class="point-marker">▸</span>
+<input type="text" class="point-text" value="Decryption Proof: Video starts automatically once the key is acquired from the license server.">
+</div>
+<div class="point-item">
+<span class="point-marker">▸</span>
+<input type="text" class="point-text" value="Test Policy: This demo uses Widevine L3 (Software Security), the standard policy for public test assets.">
+</div>
+<div class="point-item">
+<span class="point-marker">▸</span>
+<input type="text" class="point-text" value="Capture Status: Screen recording is NOT blocked by this L3 policy. Blockage requires Widevine L1 (Hardware).">
+</div>
+</div>
+</div>
+
+<h2 contenteditable="true" data-placeholder="Video Content">DRM Protected Video</h2>
+<div class="content-block">
+<div class="video-container" style="width: 100%; height: 400px;">
+<video id="protectedVideo" 
+poster="data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' viewBox=\'0 0 640 480\'%3E%3Crect width=\'100%25\' height=\'100%25\' fill=\'%23161B22\'/%3E%3Ctext x=\'50%25\' y=\'50%25\' dominant-baseline=\'middle\' text-anchor=\'middle\' font-size=\'40\' fill=\'%238B949E\'%3EEncrypted%20Video%20Waiting%3C/text%3E%3C/svg%3E"
+controls 
+autoplay
+style="width: 100%; height: 100%; background: #1e2029; border-radius: 2px; display: block;"></video>
+</div>
+
+<input type="text" class="caption" placeholder="This video is encrypted with Widevine DRM and is automatically decrypted by the Shaka player upon loading.">
+
+<div class="input-group" style="margin-top: 16px; display: none;">
+<input type="text" id="manifestUrl" 
+value="https://storage.googleapis.com/shaka-demo-assets/sintel-widevine/dash.mpd">
+<input type="text" id="licenseUrl" 
+value="https://cwip-shaka-proxy.appspot.com/no_auth">
+</div>
+
+<button class="add-point" onclick="clearPlayer()">Clear Player</button>
+
+<div style="margin-top: 12px; font-size: 0.8rem; color: #58A6FF; font-style: italic;">
+Widevine Test Status: Video is started automatically on page load.
+</div>
+</div>
+
+<h2 contenteditable="true" data-placeholder="Crypto Tools">Base64 Encoding/Decoding</h2>
+
+<div class="content-block">
+<h3 style="color: #58A6FF; margin-bottom: 16px; font-size: 1.1rem; font-weight: 300;">Base64 Encoder/Decoder</h3>
+<textarea class="text-input" id="base64Input" placeholder="Enter text to encode/decode..."></textarea>
+<div style="display: flex; gap: 12px; margin: 16px 0;">
+<button class="add-point" onclick="encodeBase64()">Encode Base64</button>
+<button class="add-point" onclick="decodeBase64()">Decode Base64</button>
+</div>
+<textarea class="text-input" id="base64Output" placeholder="Result will appear here..." readonly style="background: #0D1117; border: 1px solid #30363D;"></textarea>
+
+<div style="margin-top: 12px; font-size: 0.85rem; color: #8B949E;">
+Base64 is a simple encoding scheme used to represent binary data (like images or encrypted files) as a string of ASCII characters for safe transport over network protocols. It is not a security measure.
+</div>
+</div>
+
+<h2 contenteditable="true" data-placeholder="Summary">Summary of Security Implementation</h2>
+<div class="content-block">
+<ul>
+<li>The project confirms that Widevine DRM effectively controls access, preventing unauthorized playback until the license is granted.</li>
+<li>The L3 policy used in this demo serves as a strong access control demonstration.</li>
+<li>Client-side deterrents (key blocking, blurring) are included to minimize casual piracy attempts.</li>
+<li>True anti-screen capture security requires server-side enforcement using Widevine L1 hardware-backed policies.</li>
+</ul>
+</div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
